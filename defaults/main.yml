@@ -1,7 +1,4 @@
-#SPDX-License-Identifier: MIT-0
 ---
-# defaults file for .
----
-vector_version: "0.34.0" # версия vector
+vector_version: "0.39.0"
 vector_user: root
 vector_group: root

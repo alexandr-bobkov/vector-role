@@ -1,17 +1,13 @@
-#SPDX-License-Identifier: MIT-0
 ---
-# tasks file for .
----
-- name: Download Vector package
+- name: Download Vector package from GitHub Releases
   ansible.builtin.get_url:
-    url: "https://packages.vector.dev/apt/pool/main/v/vector/vector_{{ vector_version }}_amd64.deb"
-    dest: "/tmp/vector_{{ vector_version }}_amd64.deb"
-  register: download_vector
-  ignore_errors: true
+    url: "https://github.com/vectordotdev/vector/releases/download/v{{ vector_version }}/vector_{{ vector_version }}-1_amd64.deb"
+    dest: "/tmp/vector_{{ vector_version }}-1_amd64.deb"
+    mode: '0644'
 
 - name: Install Vector via apt
   ansible.builtin.apt:
-    deb: "/tmp/vector_{{ vector_version }}_amd64.deb"
+    deb: "/tmp/vector_{{ vector_version }}-1_amd64.deb"
     state: present
   become: true
 
